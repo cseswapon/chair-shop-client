@@ -1,13 +1,13 @@
 .product {
   display: inline;
   border-left: 2px solid #314989;
-  border-right: 2px solid #314989;
+  /* border-right: 2px solid #314989; */
   border-width: 4px;
-  border-radius: 30px;
+  /* border-radius: 30px; */
   padding-left: 15px;
-  padding-right: 15px;
+  /* padding-right: 15px; */
   color: #a75840;
 }
 .custom-buttom {
-  margin-bottom: 150px;
+  margin-bottom: 130px;
 }

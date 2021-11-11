@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
+import swal from "sweetalert";
 import useAuth from "../../../hooks/useAuth.";
 import Footer from "../../Shared/Footer/Footer";
 import Navigation from "../../Shared/Navigation/Navigation";
 const Login = () => {
   const [users, setUsers] = useState({});
-  const { googleSingin } = useAuth();
+  const { googleSingin, logIn } = useAuth();
+  const location = useLocation();
+  const history = useHistory();
   const handelInputFiled = (e) => {
     const filed = e.target.name;
     const value = e.target.value;
@@ -15,7 +18,8 @@ const Login = () => {
   };
   const handelFrom = (e) => {
     e.preventDefault();
-    console.log(users);
+    logIn(users.email, users.password, location, history);
+    swal("Login Successfully!", "Welcome to our website!", "success");
     e.target.reset();
   };
 
@@ -64,7 +68,10 @@ const Login = () => {
         </form>
         <h4 className="text-center text-danger">----- or -----</h4>
         <div className="text-center">
-          <button onClick={googleSingin} className="btn btn-danger m-2">
+          <button
+            onClick={() => googleSingin(location, history)}
+            className="btn btn-danger m-2"
+          >
             <i className="fab fa-google-plus text-light"></i>
           </button>
           <p>

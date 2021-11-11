@@ -6,6 +6,7 @@ import Explore from "./Pages/Explore/Explore";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
 import Singup from "./Pages/Login/Singup/Singup";
+import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -28,9 +29,9 @@ function App() {
             <Route path="/singup">
               <Singup></Singup>
             </Route>
-            <Route path="/dashboard">
+            <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
-            </Route>
+            </PrivateRoute>
           </Switch>
         </Router>
       </AuthProvider>

@@ -11,3 +11,10 @@
   border-radius: 2px;
   padding: 2px 15px;
 }
+.nav-cs {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}

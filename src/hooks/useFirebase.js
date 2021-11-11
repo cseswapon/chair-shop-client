@@ -41,13 +41,15 @@ const useFirebase = () => {
       });
   };
   // google login
-  const googleSingin = () => {
+  const googleSingin = (location, history) => {
     setIsLoading(true);
+    const uri_redirect = location?.state?.from || "/home";
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
         console.log(user);
         setUsers(user);
+        history.push(uri_redirect);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -58,7 +60,22 @@ const useFirebase = () => {
       });
   };
   // Login
-
+  const logIn = (email, password, location, history) => {
+    setIsLoading(true);
+    const uri_redirect = location?.state?.from || "/home";
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        setError("");
+        const user = userCredential.user;
+        setUsers(user);
+        history.push(uri_redirect);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      })
+      .finally(() => setIsLoading(false));
+  };
   // observer
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -88,6 +105,7 @@ const useFirebase = () => {
     registerEmail,
     logOut,
     isLoading,
+    logIn,
   };
 };
 export default useFirebase;

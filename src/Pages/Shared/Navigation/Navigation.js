@@ -21,7 +21,7 @@ const Navigation = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto nav-section">
+          <Nav className="ms-auto nav-section align-items-center">
             <NavLink
               to="/home"
               activeStyle={{
@@ -42,30 +42,43 @@ const Navigation = () => {
             >
               Explore
             </NavLink>
-            <NavLink
-              to="/dashboard"
-              activeStyle={{
-                fontWeight: "bold",
-                color: "yellow",
-                borderBottom: "2px solid yellow",
-              }}
-            >
-              Dashboard
-            </NavLink>
-            <span>{users?.displayName}</span>
-            <NavLink
-              to="/login"
-              className="login-system"
-              activeStyle={{
-                fontWeight: "bold",
-                color: "yellow",
-              }}
-            >
-              Login
-            </NavLink>
-            <button onClick={logOut} className="btn btn-danger">
-              Logout
-            </button>
+            {users.email && (
+              <NavLink
+                to="/dashboard"
+                activeStyle={{
+                  fontWeight: "bold",
+                  color: "yellow",
+                  borderBottom: "2px solid yellow",
+                }}
+              >
+                Dashboard
+              </NavLink>
+            )}
+            {users.email && (
+              <span className="nav-cs">
+                <i className="fas fa-user me-1"></i>
+                {users?.displayName}
+              </span>
+            )}
+            {!users?.email ? (
+              <NavLink
+                to="/login"
+                className="btn btn-danger text-white fw-bold"
+                activeStyle={{
+                  fontWeight: "bold",
+                  color: "yellow",
+                }}
+              >
+                Login <i className=" ms-1 fas fa-sign-in-alt"></i>
+              </NavLink>
+            ) : (
+              <span
+                onClick={logOut}
+                className="btn btn-success text-white fw-bold"
+              >
+                Logout <i className="ms-1 fas fa-sign-out-alt"></i>
+              </span>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
