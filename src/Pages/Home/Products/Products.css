@@ -1,0 +1,25 @@
+.first-dr {
+  position: relative;
+  overflow: hidden;
+}
+.social-media {
+  text-align: center;
+  justify-content: center;
+  color: white;
+  margin: 0px auto;
+  position: absolute;
+  /* background: rgba(41, 60, 231, 0.438); */
+  background-image: linear-gradient(
+    rgba(22, 90, 236, 0.445),
+    rgba(30, 110, 230, 0.747)
+  );
+  height: 100%;
+  width: 100%;
+  top: -100%;
+  box-sizing: border-box;
+  transition: all 0.5s;
+  padding: 5px;
+}
+.first-dr:hover .social-media {
+  top: 0%;
+}

@@ -1,0 +1,13 @@
+.nav {
+  background: rgba(238, 96, 40, 0.897);
+}
+.nav-section a {
+  text-decoration: none;
+  margin-left: 10px;
+  color: white;
+}
+.login-system {
+  border: 1px solid white;
+  border-radius: 2px;
+  padding: 2px 15px;
+}

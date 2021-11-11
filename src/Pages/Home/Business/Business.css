@@ -1,0 +1,22 @@
+.business-service {
+  background: url("/src/img/slider-3.jpg");
+  height: 30vh;
+  background-attachment: fixed;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  mix-blend-mode: darken;
+}
+.custom-text {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.custom-text h3 {
+  display: inline;
+  background: rgba(7, 95, 196, 0.801);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+}

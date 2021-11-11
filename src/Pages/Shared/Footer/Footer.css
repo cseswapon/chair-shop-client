@@ -1,0 +1,45 @@
+.footer-bg {
+  margin-top: 150px;
+  background: rgb(230, 73, 11);
+}
+.input-filed {
+  height: 40px;
+  width: 50%;
+  border-radius: 3px;
+  border: 0px;
+  padding: 10px;
+}
+.down-footer {
+  background: rgb(218, 214, 214);
+  height: 60vh;
+  position: relative;
+}
+.child-footer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.social-media-icon {
+  font-size: 35px;
+}
+.social-media-icon i {
+  margin-right: 30px;
+  color: gray;
+}
+.social-media-icon i:hover {
+  color: rgb(230, 73, 11);
+  cursor: pointer;
+}
+.payment-system {
+  margin-top: 50px;
+  font-size: 30px;
+}
+.payment-system i {
+  margin-right: 10px;
+  color: gray;
+}
+.copyright {
+  margin-top: 10px;
+  color: gray;
+}
