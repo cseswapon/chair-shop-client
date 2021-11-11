@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
+import useAuth from "../../../hooks/useAuth.";
 import Footer from "../../Shared/Footer/Footer";
 import Navigation from "../../Shared/Navigation/Navigation";
 
 const Singup = () => {
   const [loginUser, setLoginUser] = useState({});
+  const { registerEmail } = useAuth();
   const handelInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -15,7 +17,6 @@ const Singup = () => {
   };
   const handelFrom = (e) => {
     e.preventDefault();
-    console.log(loginUser);
     if (loginUser.password1 !== loginUser.password2) {
       swal(
         "Password Not Matched !",
@@ -23,6 +24,7 @@ const Singup = () => {
       );
       return;
     } else {
+      registerEmail(loginUser.email, loginUser.password1, loginUser.name);
       swal("Register Successfully!", "Welcome to our website!", "success");
       e.target.reset();
     }

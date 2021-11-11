@@ -1,13 +1,16 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+import useAuth from "../../../hooks/useAuth.";
 import chair from "../../../img/chair-logo_x44.png";
 import "./Navigation.css";
 const Navigation = () => {
+  const { users, logOut } = useAuth();
   return (
     <Navbar className="nav" expand="lg" sticky="top">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand as={HashLink} to="/home">
           <img
             alt="logo"
             src={chair}
@@ -49,6 +52,7 @@ const Navigation = () => {
             >
               Dashboard
             </NavLink>
+            <span>{users?.displayName}</span>
             <NavLink
               to="/login"
               className="login-system"
@@ -59,17 +63,9 @@ const Navigation = () => {
             >
               Login
             </NavLink>
-            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown> */}
+            <button onClick={logOut} className="btn btn-danger">
+              Logout
+            </button>
           </Nav>
         </Navbar.Collapse>
       </Container>
