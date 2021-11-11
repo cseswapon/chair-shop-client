@@ -16,8 +16,8 @@ const Navigation = () => {
             src={chair}
             height="30"
             title="Chair Shop"
-            className="d-inline-block align-top"
-          />{" "}
+            className="align-top bg-light d-inline-block p-1 rounded"
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

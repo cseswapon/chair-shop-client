@@ -20,7 +20,8 @@ const Singup = () => {
     if (loginUser.password1 !== loginUser.password2) {
       swal(
         "Password Not Matched !",
-        "Please check your input filed and re-type!"
+        "Please check your input filed and re-type!",
+        "warning"
       );
       return;
     } else {

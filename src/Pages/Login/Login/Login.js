@@ -6,7 +6,7 @@ import Footer from "../../Shared/Footer/Footer";
 import Navigation from "../../Shared/Navigation/Navigation";
 const Login = () => {
   const [users, setUsers] = useState({});
-  const { googleSingin, logIn } = useAuth();
+  const { googleSingin, logIn, users: user, error } = useAuth();
   const location = useLocation();
   const history = useHistory();
   const handelInputFiled = (e) => {
@@ -19,10 +19,9 @@ const Login = () => {
   const handelFrom = (e) => {
     e.preventDefault();
     logIn(users.email, users.password, location, history);
-    swal("Login Successfully!", "Welcome to our website!", "success");
     e.target.reset();
   };
-
+  console.log(error);
   return (
     <>
       <Navigation></Navigation>
@@ -66,6 +65,7 @@ const Login = () => {
             Login
           </button>
         </form>
+
         <h4 className="text-center text-danger">----- or -----</h4>
         <div className="text-center">
           <button

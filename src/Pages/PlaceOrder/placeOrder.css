@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Mochiy+Pop+P+One&display=swap");
+.info-id {
+  font-family: "Dancing Script", cursive;
+}
+.info-text {
+  font-family: "Lobster", cursive;
+  font-weight: bold;
+}
+.single-name {
+  font-family: "Lobster", cursive;
+  font-weight: bolder;
+  color: #e96430;
+  font-size: 50px;
+}
+.single-pg {
+  font-family: "Dancing Script", cursive;
+  font-size: 20px;
+}
+.single-Price {
+  display: inline;
+  background: #ed6e3c;
+  color: white;
+  padding: 10px 30px;
+  font-size: 21px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.from-input input {
+  display: inline-block;
+  width: 50%;
+  height: 50px;
+  margin: 7px;
+  background: rgba(53, 102, 122, 0.911);
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(97, 4, 4);
+}
+.from-input input:focus {
+  outline: none;
+}
+.submit-btn {
+  background: #e96430;
+}
+.order-bg {
+  background: url("../../img/JqgUhr.jpg");
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+.bg-ts {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,8 +1,13 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
+import { useHistory } from "react-router";
 import "./Products.css";
 const Products = ({ product }) => {
-  const { name, price, details, img } = product;
+  const { _id, name, price, details, img } = product;
+  const history = useHistory();
+  const handelClick = (id) => {
+    history.push(`/placeorder/${id}`);
+  };
   return (
     <div>
       <Col>
@@ -14,7 +19,7 @@ const Products = ({ product }) => {
               <small className="text-dark">{details.slice(0, 150)}.</small>
             </div>
             <h3>$ {price}</h3>
-            <button className="btn btn-danger">
+            <button onClick={() => handelClick(_id)} className="btn btn-danger">
               <i className="fas fa-shopping-cart"></i> Add to cart
             </button>
           </div>

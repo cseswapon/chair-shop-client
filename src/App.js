@@ -6,6 +6,7 @@ import Explore from "./Pages/Explore/Explore";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
 import Singup from "./Pages/Login/Singup/Singup";
+import PlaceOrder from "./Pages/PlaceOrder/PlaceOrder";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
+            </PrivateRoute>
+            <PrivateRoute path="/placeorder/:id">
+              <PlaceOrder></PlaceOrder>
             </PrivateRoute>
           </Switch>
         </Router>

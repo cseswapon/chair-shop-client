@@ -47,13 +47,13 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         setUsers(user);
         history.push(uri_redirect);
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        setError(errorMessage);
       })
       .finally(() => {
         setIsLoading(false);
@@ -65,7 +65,7 @@ const useFirebase = () => {
     const uri_redirect = location?.state?.from || "/home";
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        setError("");
+        setError(" ");
         const user = userCredential.user;
         setUsers(user);
         history.push(uri_redirect);
@@ -80,6 +80,7 @@ const useFirebase = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
+        setError("");
         setUsers(user);
       } else {
       }
