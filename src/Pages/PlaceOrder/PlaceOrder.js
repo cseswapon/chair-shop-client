@@ -13,7 +13,7 @@ const PlaceOrder = () => {
   const [single, setSingle] = useState({});
   const [loading, setLoading] = useState(true);
   const { register, handleSubmit } = useForm();
-  const { users } = useAuth();
+  const { users, isLoading } = useAuth();
 
   const onSubmit = (data) => {
     fetch(`http://localhost:5000/order`, {
@@ -43,7 +43,7 @@ const PlaceOrder = () => {
         setLoading(false);
       });
   }, [id]);
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="text-center my-5 py-5">
         <div className="my-3">

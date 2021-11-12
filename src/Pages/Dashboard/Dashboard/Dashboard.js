@@ -14,15 +14,7 @@ import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import DashboardPrivate from "../DasboardPrivate/DashboardPrivate";
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
-  const { users, logOut } = useAuth();
-  const [admin, setAdmin] = useState([]);
-  useEffect(() => {
-    fetch(`http://localhost:5000/users?email=${users.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setAdmin(data);
-      });
-  }, [users.email]);
+  const { users, logOut, admin } = useAuth();
   // console.log(admin);
   return (
     <>
@@ -51,7 +43,7 @@ const Dashboard = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                {!admin.admin ? (
+                {!admin ? (
                   <span>
                     {/* normal user */}
                     <Nav.Link as={Link} to={`${url}/myorder`}>
@@ -108,9 +100,6 @@ const Dashboard = () => {
       </Navbar>
       <div className="container">
         <Switch>
-          <Route exact path={path}>
-            <Myorder></Myorder>
-          </Route>
           <Route path={`${path}/myorder`}>
             <Myorder></Myorder>
           </Route>

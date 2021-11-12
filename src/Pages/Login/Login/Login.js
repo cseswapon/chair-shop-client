@@ -5,20 +5,21 @@ import useAuth from "../../../hooks/useAuth.";
 import Footer from "../../Shared/Footer/Footer";
 import Navigation from "../../Shared/Navigation/Navigation";
 const Login = () => {
-  const [users, setUsers] = useState({});
-  const { googleSingin, logIn, users: user, error } = useAuth();
+  const [loginData, setLoginData] = useState({});
+  const { googleSingin, logIn, users, error } = useAuth();
   const location = useLocation();
   const history = useHistory();
   const handelInputFiled = (e) => {
-    const filed = e.target.name;
+    const field = e.target.name;
     const value = e.target.value;
-    const newUser = { ...users };
-    newUser[filed] = value;
-    setUsers(newUser);
+    const newLoginData = { ...loginData };
+    newLoginData[field] = value;
+    setLoginData(newLoginData);
   };
+  // console.log(loginData);
   const handelFrom = (e) => {
     e.preventDefault();
-    logIn(users.email, users.password, location, history);
+    logIn(loginData.email, loginData.password, location, history);
     e.target.reset();
   };
   console.log(error);

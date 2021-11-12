@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import Slider from "react-slick";
 import Reviews from "../Reviews/Reviews";
 import "./Review.css";
@@ -38,13 +39,24 @@ const settings = {
 };
 const Review = () => {
   const [review, setReview] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => {
         setReview(data);
+        setLoading(false);
       });
   }, []);
+  if (loading) {
+    return (
+      <div className="text-center my-5 py-5">
+        <div className="my-3">
+          <Spinner animation="grow" variant="danger" />
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="my-5 review-bg custom-buttom">
       <h1 className="text-center text-warning py-lg-4 p-3 mb-3">

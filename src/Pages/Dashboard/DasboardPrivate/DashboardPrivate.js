@@ -1,17 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Redirect, Route } from "react-router";
 import Spinner from "react-bootstrap/Spinner";
 import useAuth from "../../../hooks/useAuth.";
 const DashboardPrivate = ({ children, ...rest }) => {
-  const { users, isLoading } = useAuth();
-  const [admin, setAdmin] = useState([]);
-  useEffect(() => {
-    fetch(`http://localhost:5000/users?email=${users.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setAdmin(data);
-      });
-  }, [users.email]);
+  const { users, isLoading, admin } = useAuth();
   if (isLoading) {
     return (
       <div className="text-center my-5 py-5">
@@ -25,7 +17,7 @@ const DashboardPrivate = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({ location }) =>
-        users.email && admin?.admin ? (
+        users.email && admin ? (
           children
         ) : (
           <Redirect

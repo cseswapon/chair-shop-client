@@ -12,8 +12,9 @@ import {
 import initializeFirebase from "../Pages/Login/Firebase/firebase.init";
 const useFirebase = () => {
   initializeFirebase();
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState({});
   const [error, setError] = useState("");
+  const [admin, setAdmin] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
   const auth = getAuth();
@@ -36,26 +37,14 @@ const useFirebase = () => {
             setError(error.message);
           });
         const user = result.user;
-        history.push(uri_redirect);
+        history.replace(uri_redirect);
       })
       .catch((error) => {
         setError(error.message);
       })
-      .finally(() => {
-        setIsLoading(false);
-      });
+      .finally(() => setIsLoading(false));
   };
-  // observer
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setError("");
-        setUsers(user);
-      } else {
-      }
-      setIsLoading(false);
-    });
-  }, []);
+
   // google login
   const googleSingin = (location, history) => {
     setIsLoading(true);
@@ -66,7 +55,7 @@ const useFirebase = () => {
         // console.log(user);
         setUsers(user);
         saveData(user.email, user.displayName, "PUT");
-        history.push(uri_redirect);
+        history.replace(uri_redirect);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -79,13 +68,11 @@ const useFirebase = () => {
   // Login
   const logIn = (email, password, location, history) => {
     setIsLoading(true);
-    const uri_redirect = location?.state?.from || "/home";
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(() => {
+        const uri_redirect = location?.state?.from || "/";
+        history.replace(uri_redirect);
         setError(" ");
-        const user = userCredential.user;
-        setUsers(user);
-        history.push(uri_redirect);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -93,6 +80,30 @@ const useFirebase = () => {
       })
       .finally(() => setIsLoading(false));
   };
+
+  // observer user state
+  useEffect(() => {
+    const unsubscribed = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUsers(user);
+      } else {
+        setUsers({});
+      }
+      setIsLoading(false);
+    });
+    return () => unsubscribed;
+  }, [auth]);
+
+  // addmin
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users?email=${users.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAdmin(data.admin);
+      })
+      .finally(() => setIsLoading(false));
+  }, [users.email]);
 
   // logout
   const logOut = () => {
@@ -125,6 +136,7 @@ const useFirebase = () => {
     logOut,
     isLoading,
     logIn,
+    admin,
   };
 };
 export default useFirebase;
