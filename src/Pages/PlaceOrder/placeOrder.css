@@ -25,7 +25,8 @@
   font-weight: bold;
   border-radius: 10px;
 }
-.from-input input {
+.from-input input,
+select {
   display: inline-block;
   width: 50%;
   height: 50px;
@@ -44,7 +45,7 @@
 }
 .order-bg {
   background: url("../../img/JqgUhr.jpg");
-  height: 80vh;
+  height: 90vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

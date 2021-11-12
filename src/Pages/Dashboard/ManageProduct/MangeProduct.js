@@ -1,10 +1,10 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import Table from "react-bootstrap/Table";
 const MangeProduct = () => {
   return (
-    <div>
-      <h1>Normal user Login product</h1>
-    </div>
+    <>
+      <h1>up Comming Product</h1>
+    </>
   );
 };
 

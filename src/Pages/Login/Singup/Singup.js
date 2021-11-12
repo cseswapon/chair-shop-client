@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import swal from "sweetalert";
 import useAuth from "../../../hooks/useAuth.";
 import Footer from "../../Shared/Footer/Footer";
@@ -7,6 +7,8 @@ import Navigation from "../../Shared/Navigation/Navigation";
 
 const Singup = () => {
   const [loginUser, setLoginUser] = useState({});
+  const history = useHistory();
+  const location = useLocation();
   const { registerEmail } = useAuth();
   const handelInput = (e) => {
     const name = e.target.name;
@@ -25,7 +27,13 @@ const Singup = () => {
       );
       return;
     } else {
-      registerEmail(loginUser.email, loginUser.password1, loginUser.name);
+      registerEmail(
+        loginUser.email,
+        loginUser.password1,
+        loginUser.name,
+        location,
+        history
+      );
       swal("Register Successfully!", "Welcome to our website!", "success");
       e.target.reset();
     }

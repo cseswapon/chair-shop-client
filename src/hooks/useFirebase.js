@@ -18,11 +18,15 @@ const useFirebase = () => {
   const googleProvider = new GoogleAuthProvider();
   const auth = getAuth();
   // email password singUp
-  const registerEmail = (email, password, name) => {
+  const registerEmail = (email, password, name, location, history) => {
     setIsLoading(true);
+    const uri_redirect = location?.state?.from || "/home";
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const newUser = { email, displayName: name };
+        // database added
+        saveData(email, name, "post");
+        // added name
         setUsers(newUser);
         updateProfile(auth.currentUser, {
           displayName: name,
@@ -32,6 +36,7 @@ const useFirebase = () => {
             setError(error.message);
           });
         const user = result.user;
+        history.push(uri_redirect);
       })
       .catch((error) => {
         setError(error.message);
@@ -40,6 +45,17 @@ const useFirebase = () => {
         setIsLoading(false);
       });
   };
+  // observer
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setError("");
+        setUsers(user);
+      } else {
+      }
+      setIsLoading(false);
+    });
+  }, []);
   // google login
   const googleSingin = (location, history) => {
     setIsLoading(true);
@@ -49,6 +65,7 @@ const useFirebase = () => {
         const user = result.user;
         // console.log(user);
         setUsers(user);
+        saveData(user.email, user.displayName, "PUT");
         history.push(uri_redirect);
       })
       .catch((error) => {
@@ -76,17 +93,7 @@ const useFirebase = () => {
       })
       .finally(() => setIsLoading(false));
   };
-  // observer
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setError("");
-        setUsers(user);
-      } else {
-      }
-      setIsLoading(false);
-    });
-  }, []);
+
   // logout
   const logOut = () => {
     setIsLoading(true);
@@ -98,6 +105,17 @@ const useFirebase = () => {
       .finally(() => {
         setIsLoading(false);
       });
+  };
+  // save database
+  const saveData = (email, displayName, method) => {
+    const user = { email, displayName };
+    fetch("http://localhost:5000/users", {
+      method: method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
   };
   return {
     googleSingin,

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import { Container, Nav, Navbar, Offcanvas, Button } from "react-bootstrap";
+import useAuth from "../../../hooks/useAuth.";
 import Myorder from "../Myorder/Myorder";
 import ReviewControl from "../ReviewControl/ReviewControl";
 import Pay from "../Pay/Pay";
@@ -10,8 +11,19 @@ import ManageAll from "../ManageAll/ManageAll";
 import MangeProduct from "../ManageProduct/MangeProduct";
 import AddProduct from "../AddProduct/AddProduct";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import DashboardPrivate from "../DasboardPrivate/DashboardPrivate";
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
+  const { users, logOut } = useAuth();
+  const [admin, setAdmin] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/users?email=${users.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAdmin(data);
+      });
+  }, [users.email]);
+  // console.log(admin);
   return (
     <>
       <Navbar bg="dark" variant="dark" expand={false}>
@@ -39,29 +51,57 @@ const Dashboard = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Nav.Link as={Link} to={`${url}/myorder`}>
-                  My Order
-                </Nav.Link>
-                <Nav.Link as={Link} to={`${url}/review`}>
-                  Review
-                </Nav.Link>
-                <Nav.Link as={Link} to={`${url}/payment`}>
-                  Payment
-                </Nav.Link>
-                <Nav.Link as={Link} to={`${url}/manageall`}>
-                  Manage Orders
-                </Nav.Link>
-                <Nav.Link as={Link} to={`${url}/manageproduct`}>
-                  Manage Product
-                </Nav.Link>
-                <Nav.Link as={Link} to={`${url}/addnew`}>
-                  Add Product
-                </Nav.Link>
-                <Nav.Link as={Link} to={`${url}/admin`}>
-                  Make Admin
-                </Nav.Link>
+                {!admin.admin ? (
+                  <span>
+                    {/* normal user */}
+                    <Nav.Link as={Link} to={`${url}/myorder`}>
+                      My Order
+                    </Nav.Link>
+                    {/* normal user */}
+                    <Nav.Link as={Link} to={`${url}/review`}>
+                      Review
+                    </Nav.Link>
+                    {/* normal user */}
+                    <Nav.Link as={Link} to={`${url}/payment`}>
+                      Payment
+                    </Nav.Link>
+                    <hr />
+                  </span>
+                ) : (
+                  <span>
+                    {/* admin */}
+                    <Nav.Link as={Link} to={`${url}/manageall`}>
+                      Manage Orders
+                    </Nav.Link>
+                    {/* admin */}
+                    <Nav.Link as={Link} to={`${url}/manageproduct`}>
+                      Manage Product
+                    </Nav.Link>
+                    {/* admin */}
+                    <Nav.Link as={Link} to={`${url}/addnew`}>
+                      Add Product
+                    </Nav.Link>
+                    {/* admin */}
+                    <Nav.Link as={Link} to={`${url}/admin`}>
+                      Make Admin
+                    </Nav.Link>
+                    <hr />
+                  </span>
+                )}
               </Nav>
-              <Button variant="outline-danger">Logout</Button>
+              <div className="mt-2">
+                <span className="text-success fw-bolder me-3 border p-2 rounded">
+                  <i className="fas fa-user me-2"></i>
+                  {users?.displayName}
+                </span>
+                <span
+                  style={{ cursor: "pointer" }}
+                  className="text-danger fw-bolder me-3 border p-2 rounded"
+                  onClick={logOut}
+                >
+                  Logout <i className="fas fa-sign-out-alt"></i>
+                </span>
+              </div>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>
@@ -81,18 +121,18 @@ const Dashboard = () => {
             {/* comming soon */}
             <Pay></Pay>
           </Route>
-          <Route path={`${path}/manageall`}>
+          <DashboardPrivate path={`${path}/manageall`}>
             <ManageAll></ManageAll>
-          </Route>
-          <Route path={`${path}/manageproduct`}>
+          </DashboardPrivate>
+          <DashboardPrivate path={`${path}/manageproduct`}>
             <MangeProduct></MangeProduct>
-          </Route>
-          <Route path={`${path}/addnew`}>
+          </DashboardPrivate>
+          <DashboardPrivate path={`${path}/addnew`}>
             <AddProduct></AddProduct>
-          </Route>
-          <Route path={`${path}/admin`}>
+          </DashboardPrivate>
+          <DashboardPrivate path={`${path}/admin`}>
             <MakeAdmin></MakeAdmin>
-          </Route>
+          </DashboardPrivate>
         </Switch>
       </div>
     </>

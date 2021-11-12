@@ -25,7 +25,7 @@ const PlaceOrder = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.insertedId) {
           swal(
             "Data added Successfully!",
@@ -52,7 +52,7 @@ const PlaceOrder = () => {
       </div>
     );
   }
-  const date = new Date();
+  // const date = new Date();
   return (
     <div>
       <Navigation></Navigation>
@@ -129,6 +129,9 @@ const PlaceOrder = () => {
                 {...register("price")}
               />
               <input required type="date" {...register("date")} />
+              <select {...register("status")}>
+                <option value="pending">Pending</option>
+              </select>
               <input
                 style={{
                   background: "rgb(237 75 12 / 73%)",
