@@ -100,6 +100,11 @@ const Dashboard = () => {
       </Navbar>
       <div className="container">
         <Switch>
+          <Route exact path={path}>
+            <h3 className="text-center text-danger my-5">
+              Please select a dashboard toggle menu{" "}
+            </h3>
+          </Route>
           <Route path={`${path}/myorder`}>
             <Myorder></Myorder>
           </Route>
@@ -110,7 +115,7 @@ const Dashboard = () => {
             {/* comming soon */}
             <Pay></Pay>
           </Route>
-          <DashboardPrivate path={`${path}/manageall`}>
+          <DashboardPrivate exact path={`${path}/manageall`}>
             <ManageAll></ManageAll>
           </DashboardPrivate>
           <DashboardPrivate path={`${path}/manageproduct`}>

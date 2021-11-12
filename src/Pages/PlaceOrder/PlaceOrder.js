@@ -118,13 +118,14 @@ const PlaceOrder = () => {
                 {...register("email")}
               />
               <input
-                defaultValue={single.name}
+                required
+                placeholder={`"${single.name}" Please Type`}
                 type="text"
                 {...register("name")}
               />
               <input
-                defaultValue={single.price}
-                readOnly
+                required
+                placeholder={`"${single.price}" Please Type`}
                 type="number"
                 {...register("price")}
               />

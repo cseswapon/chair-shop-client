@@ -10,10 +10,10 @@ const ManageAllTable = ({ product, index }) => {
       <td>{name}</td>
       <td>{date}</td>
       <td>
-        <span className="badge bg-secondary">{status || "approved"}</span>
+        <span className="badge bg-secondary">{status || "pending"}</span>
       </td>
       <td>
-        <i className="fas fa-trash text-danger fs-5"></i>
+        <i className="fas fa-hourglass-end text-primary fs-5"></i>
       </td>
     </tr>
   );

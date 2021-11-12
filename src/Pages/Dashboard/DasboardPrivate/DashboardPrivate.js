@@ -4,7 +4,7 @@ import Spinner from "react-bootstrap/Spinner";
 import useAuth from "../../../hooks/useAuth.";
 const DashboardPrivate = ({ children, ...rest }) => {
   const { users, isLoading, admin } = useAuth();
-  if (isLoading) {
+  /* if (isLoading) {
     return (
       <div className="text-center my-5 py-5">
         <div className="my-5">
@@ -12,7 +12,7 @@ const DashboardPrivate = ({ children, ...rest }) => {
         </div>
       </div>
     );
-  }
+  } */
   return (
     <Route
       {...rest}

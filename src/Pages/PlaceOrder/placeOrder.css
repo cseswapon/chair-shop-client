@@ -31,11 +31,11 @@ select {
   width: 50%;
   height: 50px;
   margin: 7px;
-  background: rgba(53, 102, 122, 0.911);
+  background: rgb(203, 209, 211);
   padding: 10px;
-  color: white;
+  color: rgb(63, 56, 56);
   border-radius: 10px;
-  border: 2px solid rgb(97, 4, 4);
+  border: 2px solid rgb(107, 101, 101);
 }
 .from-input input:focus {
   outline: none;

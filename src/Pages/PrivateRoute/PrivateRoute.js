@@ -4,7 +4,7 @@ import Spinner from "react-bootstrap/Spinner";
 import useAuth from "../../hooks/useAuth.";
 const PrivateRoute = ({ children, ...rest }) => {
   const { users, isLoading } = useAuth();
-  if (!users.email) {
+  if (isLoading) {
     return (
       <div className="text-center my-5 py-5">
         <div className="my-5">

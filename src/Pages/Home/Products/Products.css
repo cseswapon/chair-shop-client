@@ -18,8 +18,11 @@
   top: -100%;
   box-sizing: border-box;
   transition: all 0.5s;
-  padding: 5px;
+  padding: 25px;
 }
 .first-dr:hover .social-media {
   top: 0%;
+}
+.first-dr img {
+  height: 300px;
 }

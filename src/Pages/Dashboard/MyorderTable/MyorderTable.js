@@ -8,8 +8,15 @@ const MyorderTable = ({ order, index }) => {
       <td>{firstName}</td>
       <td>{email}</td>
       <td>{name}</td>
-      <td>{status || "pending"}</td>
-      <td>delete</td>
+      <td>
+        <span className="badge bg-primary p-1"> {status || "pending"}</span>
+      </td>
+      <td>
+        <i
+          style={{ cursor: "pointer" }}
+          className="fas fa-ban text-danger fs-5"
+        ></i>
+      </td>
     </tr>
   );
 };
