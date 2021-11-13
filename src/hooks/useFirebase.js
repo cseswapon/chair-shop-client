@@ -112,7 +112,9 @@ const useFirebase = () => {
       .then(() => {
         setUsers("");
       })
-      .catch((error) => {})
+      .catch((error) => {
+        console.log(error.message);
+      })
       .finally(() => {
         setIsLoading(false);
       });
