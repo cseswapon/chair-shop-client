@@ -5,7 +5,7 @@ const ManageAllTable = ({ product, index, allP }) => {
   const { firstName, _id, email, name, date, status } = product;
   const [newStatus, setNewStatus] = useState(status);
   const handelClick = (id) => {
-    fetch(`http://localhost:5000/order/${id}`, {
+    fetch(`https://lit-badlands-47254.herokuapp.com/order/${id}`, {
       method: "put",
       headers: {
         "content-type": "application/json",

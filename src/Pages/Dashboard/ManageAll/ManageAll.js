@@ -6,7 +6,7 @@ const ManageAll = () => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/order")
+    fetch("https://lit-badlands-47254.herokuapp.com/order")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

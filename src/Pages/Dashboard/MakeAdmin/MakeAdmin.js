@@ -10,7 +10,7 @@ const MakeAdmin = () => {
   const handelSubmit = (e) => {
     e.preventDefault();
     const user = { email: email };
-    fetch("http://localhost:5000/users/admin", {
+    fetch("https://lit-badlands-47254.herokuapp.com/users/admin", {
       method: "PUT",
       headers: {
         "content-type": "application/json",

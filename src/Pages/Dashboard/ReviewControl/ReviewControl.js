@@ -8,7 +8,7 @@ const ReviewControl = () => {
   const { users } = useAuth();
   const onSubmit = (data) => {
     // console.log(data);
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://lit-badlands-47254.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

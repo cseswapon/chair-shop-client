@@ -16,7 +16,7 @@ const PlaceOrder = () => {
   const { users, isLoading } = useAuth();
 
   const onSubmit = (data) => {
-    fetch(`http://localhost:5000/order`, {
+    fetch(`https://lit-badlands-47254.herokuapp.com/order`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +36,7 @@ const PlaceOrder = () => {
       });
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${id}`)
+    fetch(`https://lit-badlands-47254.herokuapp.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setSingle(data);

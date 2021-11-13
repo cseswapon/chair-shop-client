@@ -97,7 +97,7 @@ const useFirebase = () => {
   // addmin
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users?email=${users.email}`)
+    fetch(`https://lit-badlands-47254.herokuapp.com/users?email=${users.email}`)
       .then((res) => res.json())
       .then((data) => {
         setAdmin(data.admin);
@@ -120,7 +120,7 @@ const useFirebase = () => {
   // save database
   const saveData = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("http://localhost:5000/users", {
+    fetch("https://lit-badlands-47254.herokuapp.com/users", {
       method: method,
       headers: {
         "Content-Type": "application/json",

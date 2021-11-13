@@ -6,7 +6,7 @@ const MyorderTable = ({ order, index, set, orders }) => {
     // console.log(id);
     const promise = window.confirm("Are your sure order cancel");
     if (promise) {
-      fetch(`http://localhost:5000/order/${id}`, {
+      fetch(`https://lit-badlands-47254.herokuapp.com/order/${id}`, {
         method: "delete",
       })
         .then((res) => res.json())

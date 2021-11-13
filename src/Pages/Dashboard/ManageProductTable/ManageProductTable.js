@@ -6,7 +6,7 @@ const ManageProductTable = ({ product, index, products, set }) => {
   const handelClick = (id) => {
     const promise = window.confirm("Are Your Sure Deleted");
     if (promise) {
-      fetch(`http://localhost:5000/products/${id}`, {
+      fetch(`https://lit-badlands-47254.herokuapp.com/products/${id}`, {
         method: "delete",
       })
         .then((res) => res.json())
