@@ -37,6 +37,7 @@ const ManageAll = () => {
             <th>Date</th>
             <th>Status</th>
             <th>Manage</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -46,6 +47,8 @@ const ManageAll = () => {
               product={pd}
               allP={product}
               index={index}
+              p={product}
+              set={setProduct}
             />
           ))}
         </tbody>
