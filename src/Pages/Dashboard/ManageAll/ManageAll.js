@@ -41,7 +41,12 @@ const ManageAll = () => {
         </thead>
         <tbody>
           {product.map((pd, index) => (
-            <ManageAllTable key={pd._id} product={pd} index={index} />
+            <ManageAllTable
+              key={pd._id}
+              product={pd}
+              allP={product}
+              index={index}
+            />
           ))}
         </tbody>
       </Table>

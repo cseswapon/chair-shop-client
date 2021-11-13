@@ -1,0 +1,12 @@
+.from-input-add input,
+textarea {
+  display: inline-block;
+  width: 50%;
+  height: 50px;
+  margin: 7px;
+  outline: 0px;
+  box-shadow: inset 1px 2px 2px "#decece8";
+  padding: 10px;
+  color: rgb(63, 56, 56);
+  border-radius: 10px;
+}

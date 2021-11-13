@@ -12,9 +12,7 @@ const Reviews = ({ view }) => {
           <Card.Title className="text-center text-danger fs-6">
             {email}
           </Card.Title>
-          <Card.Text className="text-center">
-            {description.slice(0, 51)}
-          </Card.Text>
+          <Card.Text className="text-center">{description}</Card.Text>
           <div className="text-center text-warning">
             <Rating
               style={{ fontSize: 10, color: "golden" }}

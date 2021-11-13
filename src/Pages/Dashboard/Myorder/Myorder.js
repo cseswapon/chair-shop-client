@@ -31,7 +31,13 @@ const Myorder = () => {
         </thead>
         <tbody>
           {myOrder.map((my, index) => (
-            <MyorderTable key={my._id} order={my} index={index} />
+            <MyorderTable
+              key={my._id}
+              order={my}
+              index={index}
+              orders={order}
+              set={setOrder}
+            />
           ))}
         </tbody>
       </Table>
