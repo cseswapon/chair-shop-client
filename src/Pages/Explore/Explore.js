@@ -8,6 +8,9 @@ const Explore = () => {
   const [explore, setExplore] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    document.title = "Chair Shop | Explore";
+  }, []);
+  useEffect(() => {
     fetch("https://lit-badlands-47254.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => {

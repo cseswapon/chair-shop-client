@@ -9,6 +9,9 @@ import "./placeOrder.css";
 import useAuth from "../../hooks/useAuth.";
 import swal from "sweetalert";
 const PlaceOrder = () => {
+  useEffect(() => {
+    document.title = "Chair Shop | Place Order";
+  }, []);
   const { id } = useParams();
   const [single, setSingle] = useState({});
   const [loading, setLoading] = useState(true);
@@ -16,6 +19,7 @@ const PlaceOrder = () => {
   const { users, isLoading } = useAuth();
 
   const onSubmit = (data) => {
+    // return console.log(data);
     fetch(`https://lit-badlands-47254.herokuapp.com/order`, {
       method: "POST",
       headers: {
@@ -117,18 +121,21 @@ const PlaceOrder = () => {
                 type="email"
                 {...register("email")}
               />
-              <input
-                required
-                placeholder={`"${single.name}" Please Type`}
-                type="text"
-                {...register("name")}
-              />
-              <input
-                required
-                placeholder={`"${single.price}" Please Type`}
-                type="number"
-                {...register("price")}
-              />
+              {single.name && (
+                <input
+                  defaultValue={single.name}
+                  type="text"
+                  {...register("name")}
+                />
+              )}
+              {single.price && (
+                <input
+                  defaultValue={single.price}
+                  // placeholder={`"${single.price}" Please Type`}
+                  type="number"
+                  {...register("price")}
+                />
+              )}
               <input required type="date" {...register("date")} />
               <select {...register("status")}>
                 <option value="pending">Pending</option>

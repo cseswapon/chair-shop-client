@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation, useHistory } from "react-router-dom";
 import swal from "sweetalert";
 import useAuth from "../../../hooks/useAuth.";
 import Footer from "../../Shared/Footer/Footer";
 import Navigation from "../../Shared/Navigation/Navigation";
 const Login = () => {
+  useEffect(() => {
+    document.title = "Chair Shop | Login";
+  }, []);
   const [loginData, setLoginData] = useState({});
   const { googleSingin, logIn, users, error } = useAuth();
   const location = useLocation();

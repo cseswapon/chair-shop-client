@@ -13,6 +13,9 @@ import AddProduct from "../AddProduct/AddProduct";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import DashboardPrivate from "../DasboardPrivate/DashboardPrivate";
 const Dashboard = () => {
+  useEffect(() => {
+    document.title = "Chair Shop | Dashboard";
+  }, []);
   let { path, url } = useRouteMatch();
   const { users, logOut, admin } = useAuth();
   // console.log(admin);

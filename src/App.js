@@ -8,7 +8,7 @@ import Login from "./Pages/Login/Login/Login";
 import Singup from "./Pages/Login/Singup/Singup";
 import PlaceOrder from "./Pages/PlaceOrder/PlaceOrder";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
-
+import NotFound from "./Pages/NotFound/NotFound";
 function App() {
   return (
     <div>
@@ -36,6 +36,9 @@ function App() {
             <PrivateRoute path="/placeorder/:id">
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
+            <Route>
+              <NotFound></NotFound>
+            </Route>
           </Switch>
         </Router>
       </AuthProvider>
