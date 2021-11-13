@@ -6,6 +6,8 @@ import Business from "../Business/Business";
 import Product from "../Product/Product";
 import Review from "../Review/Review";
 import ShippingSupport from "../ShippingSupport/ShippingSupport";
+import ScrollAnimation from "react-animate-on-scroll";
+import Gallery from "../Gallery/Gallery";
 
 const Home = () => {
   useEffect(() => {
@@ -14,11 +16,14 @@ const Home = () => {
   return (
     <div>
       <Navigation></Navigation>
-      <Banner></Banner>
-      <ShippingSupport></ShippingSupport>
-      <Business></Business>
-      <Product></Product>
-      <Review></Review>
+      <ScrollAnimation animateIn="fadeIn">
+        <Banner></Banner>
+        <ShippingSupport></ShippingSupport>
+        <Business></Business>
+        <Product></Product>
+        <Gallery></Gallery>
+        <Review></Review>
+      </ScrollAnimation>
       <Footer />
     </div>
   );
