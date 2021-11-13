@@ -3,21 +3,94 @@ import img1 from "../../../img/image-gl/1.jpg";
 import img2 from "../../../img/image-gl/2.jpg";
 import img3 from "../../../img/image-gl/3.jpg";
 import img4 from "../../../img/image-gl/4.jpg";
-import img5 from "../../../img/image-gl/5.jpg";
-import img6 from "../../../img/image-gl/6.jpg";
 import img7 from "../../../img/image-gl/7.jpg";
 import img8 from "../../../img/image-gl/8.jpg";
 import img9 from "../../../img/image-gl/9.jpg";
-import img10 from "../../../img/image-gl/10.jpg";
-import img11 from "../../../img/image-gl/11.jpg";
-import img12 from "../../../img/image-gl/12.jpg";
-import img13 from "../../../img/image-gl/13.jpg";
-import img14 from "../../../img/image-gl/14.jpg";
 const Gallery = () => {
   return (
     <div className="container custom-buttom">
-      <div className=" mb-5">
+      <div className=" mb-5 pb-5">
         <h1 className="fw-bold product">Our Gallery</h1>
+      </div>
+      <div className="mt-5">
+        <div className="mx-auto row gx-3">
+          <div className="col-lg-4">
+            <div className="row mb-3">
+              <img
+                data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                className="img-fluid"
+                src={img1}
+                alt="avtor"
+              />
+            </div>
+            <div className="row">
+              <img
+                data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                className="img-fluid"
+                src={img2}
+                alt="avtor"
+              />
+            </div>
+          </div>
+          <div className="col-lg-4">
+            <div className="row mb-3">
+              <img
+                data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                className="img-fluid"
+                src={img3}
+                alt="avtor"
+              />
+            </div>
+            <div className="row mb-3">
+              <img
+                data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                className="img-fluid"
+                src={img4}
+                alt="avtor"
+              />
+            </div>
+          </div>
+          <div className="col-lg-4">
+            <div className="row mb-3">
+              <img
+                data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                className="img-fluid"
+                src={img7}
+                alt="avtor"
+              />
+            </div>
+            <div className="row mb-3">
+              <img
+                data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                className="img-fluid"
+                src={img8}
+                alt="avtor"
+              />
+            </div>
+            <div className="row">
+              <img
+                data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                className="img-fluid"
+                src={img9}
+                alt="avtor"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

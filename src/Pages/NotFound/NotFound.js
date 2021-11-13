@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Footer from "../Shared/Footer/Footer";
 import Navigation from "../Shared/Navigation/Navigation";
+import notfound from "../../img/404.png";
 const NotFound = () => {
   useEffect(() => {
     document.title = "Chair Shop | 404";
@@ -13,10 +14,14 @@ const NotFound = () => {
   return (
     <>
       <Navigation></Navigation>
-      <h1>Page not found</h1>
-      <button onClick={handdelBack} className="btn btn-primary">
-        Back to Home
-      </button>
+      <div className="text-center">
+        <img className="img-fluid w-25" src={notfound} alt="avtor" />
+      </div>
+      <div className="text-center">
+        <button onClick={handdelBack} className="btn btn-warning">
+          <i className="fas fa-long-arrow-alt-left me-2"></i> Back to Home
+        </button>
+      </div>
       <Footer></Footer>
     </>
   );

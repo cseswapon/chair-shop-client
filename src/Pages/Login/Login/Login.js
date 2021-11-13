@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Button, Spinner } from "react-bootstrap";
 import { Link, useLocation, useHistory } from "react-router-dom";
-import swal from "sweetalert";
 import useAuth from "../../../hooks/useAuth.";
 import Footer from "../../Shared/Footer/Footer";
 import Navigation from "../../Shared/Navigation/Navigation";
@@ -9,7 +9,7 @@ const Login = () => {
     document.title = "Chair Shop | Login";
   }, []);
   const [loginData, setLoginData] = useState({});
-  const { googleSingin, logIn, users, error } = useAuth();
+  const { googleSingin, logIn, isLoading, error } = useAuth();
   const location = useLocation();
   const history = useHistory();
   const handelInputFiled = (e) => {
@@ -65,9 +65,22 @@ const Login = () => {
               placeholder="enter your password"
             />
           </div>
-          <button type="submit" className="btn btn-outline-danger">
-            Login
-          </button>
+          {isLoading ? (
+            <Button variant="danger" disabled>
+              <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+              Login...
+            </Button>
+          ) : (
+            <button type="submit" className="btn btn-outline-danger">
+              Login
+            </button>
+          )}
         </form>
 
         <h4 className="text-center text-danger">----- or -----</h4>

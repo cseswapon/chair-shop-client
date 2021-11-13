@@ -9,6 +9,8 @@ import Singup from "./Pages/Login/Singup/Singup";
 import PlaceOrder from "./Pages/PlaceOrder/PlaceOrder";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import NotFound from "./Pages/NotFound/NotFound";
+import About from "./Pages/About/About";
+import Help from "./Help/Help";
 function App() {
   return (
     <div>
@@ -21,12 +23,18 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
+            <Route path="/about">
+              <About></About>
+            </Route>
             <Route path="/explore">
               <Explore></Explore>
             </Route>
             <Route path="/login">
               <Login />
             </Route>
+            {/* <Route path="/help">
+              <Help></Help>
+            </Route> */}
             <Route path="/singup">
               <Singup></Singup>
             </Route>

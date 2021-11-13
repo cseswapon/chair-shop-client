@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Spinner, Button } from "react-bootstrap";
 import { Link, useLocation, useHistory } from "react-router-dom";
 import swal from "sweetalert";
 import useAuth from "../../../hooks/useAuth.";
@@ -12,7 +13,7 @@ const Singup = () => {
   const [loginUser, setLoginUser] = useState({});
   const history = useHistory();
   const location = useLocation();
-  const { registerEmail } = useAuth();
+  const { registerEmail, isLoading } = useAuth();
   const handelInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -112,9 +113,22 @@ const Singup = () => {
                 placeholder="Re-type password"
               />
             </div>
-            <button type="submit" className="btn btn-outline-danger">
-              Sing Up
-            </button>
+            {isLoading ? (
+              <Button variant="danger" disabled>
+                <Spinner
+                  as="span"
+                  animation="grow"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                />
+                Loading...
+              </Button>
+            ) : (
+              <button type="submit" className="btn btn-outline-danger">
+                Sing Up
+              </button>
+            )}
           </form>
           <div className="text-center">
             <p>

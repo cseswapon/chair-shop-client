@@ -33,6 +33,16 @@ const Navigation = () => {
               Home
             </NavLink>
             <NavLink
+              to="/about"
+              activeStyle={{
+                fontWeight: "bold",
+                color: "yellow",
+                borderBottom: "2px solid yellow",
+              }}
+            >
+              About
+            </NavLink>
+            <NavLink
               to="/explore"
               activeStyle={{
                 fontWeight: "bold",
@@ -42,6 +52,27 @@ const Navigation = () => {
             >
               Explore
             </NavLink>
+            <NavLink
+              to="/help"
+              activeStyle={{
+                fontWeight: "bold",
+                color: "yellow",
+                borderBottom: "2px solid yellow",
+              }}
+            >
+              Help
+            </NavLink>
+            <NavLink
+              to="/support"
+              activeStyle={{
+                fontWeight: "bold",
+                color: "yellow",
+                borderBottom: "2px solid yellow",
+              }}
+            >
+              Support
+            </NavLink>
+
             {users.email && (
               <NavLink
                 to="/dashboard"
