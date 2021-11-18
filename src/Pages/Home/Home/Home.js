@@ -18,10 +18,20 @@ const Home = () => {
       <Navigation></Navigation>
       <ScrollAnimation animateIn="fadeIn">
         <Banner></Banner>
+      </ScrollAnimation>
+      <ScrollAnimation animateIn="fadeIn">
         <ShippingSupport></ShippingSupport>
+      </ScrollAnimation>
+      <ScrollAnimation animateIn="fadeIn">
         <Business></Business>
+      </ScrollAnimation>
+      <ScrollAnimation animateIn="fadeIn">
         <Product></Product>
+      </ScrollAnimation>
+      <ScrollAnimation animateIn="fadeIn">
         <Gallery></Gallery>
+      </ScrollAnimation>
+      <ScrollAnimation animateIn="fadeIn">
         <Review></Review>
       </ScrollAnimation>
       <Footer />

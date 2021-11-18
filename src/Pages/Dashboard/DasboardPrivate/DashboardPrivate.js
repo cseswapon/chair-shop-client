@@ -3,8 +3,8 @@ import { Redirect, Route } from "react-router";
 import Spinner from "react-bootstrap/Spinner";
 import useAuth from "../../../hooks/useAuth.";
 const DashboardPrivate = ({ children, ...rest }) => {
-  const { users, isLoading, admin } = useAuth();
-  /* if (isLoading) {
+  const { users, admin } = useAuth();
+  if (!admin) {
     return (
       <div className="text-center my-5 py-5">
         <div className="my-5">
@@ -12,7 +12,7 @@ const DashboardPrivate = ({ children, ...rest }) => {
         </div>
       </div>
     );
-  } */
+  }
   return (
     <Route
       {...rest}

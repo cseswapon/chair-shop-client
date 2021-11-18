@@ -26,7 +26,7 @@ const Product = () => {
   }
   return (
     <div className="container custom-buttom">
-      <div className=" mb-5">
+      <div className=" mb-5 pb-5">
         <h1 className="fw-bold product">Our Product</h1>
       </div>
       <Row xs={1} md={3} className="g-4">
