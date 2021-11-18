@@ -16,9 +16,8 @@ const Home = () => {
   return (
     <div>
       <Navigation></Navigation>
-      <ScrollAnimation animateIn="fadeIn">
-        <Banner></Banner>
-      </ScrollAnimation>
+
+      <Banner></Banner>
       <ScrollAnimation animateIn="fadeIn">
         <ShippingSupport></ShippingSupport>
       </ScrollAnimation>
