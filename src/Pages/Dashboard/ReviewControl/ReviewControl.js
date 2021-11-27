@@ -31,8 +31,8 @@ const ReviewControl = () => {
   };
   return (
     <>
-      <div className="text-center">
-        <h1 className="text-primary fw-bold">This is a Review</h1>
+      <div className="text-center mt-4">
+        <h1 className="text-danger fw-bold">This is a Review</h1>
       </div>
       <div className="review-form">
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -60,7 +60,7 @@ const ReviewControl = () => {
           />
           <input
             style={{ display: "inline" }}
-            className="btn btn-primary text-light p-0 text-center w-50"
+            className="btn btn-outline-danger p-0 text-center w-50"
             type="submit"
           />
         </form>

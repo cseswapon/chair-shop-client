@@ -62,7 +62,7 @@ const ManageAllTable = ({ product, index, allP, p, set }) => {
         <i
           onClick={() => handelClick(_id)}
           style={{ cursor: "pointer" }}
-          className="fas fa-hourglass-end text-primary fs-5"
+          className="fas fa-hourglass-end text-success fs-5"
         ></i>
       </td>
       <td>

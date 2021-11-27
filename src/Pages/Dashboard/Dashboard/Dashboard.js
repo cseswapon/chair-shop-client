@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
-import { Container, Nav, Navbar, Offcanvas, Button } from "react-bootstrap";
+import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import useAuth from "../../../hooks/useAuth.";
 import Myorder from "../Myorder/Myorder";
 import ReviewControl from "../ReviewControl/ReviewControl";
@@ -35,7 +35,7 @@ const Dashboard = () => {
           </Navbar.Brand>
           <Navbar.Offcanvas
             className="text-center"
-            id="offcanvasNavbar"
+            // id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
             placement="start"
           >

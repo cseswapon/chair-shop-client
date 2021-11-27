@@ -29,7 +29,7 @@ const AddProduct = () => {
   return (
     <>
       <div className="my-4">
-        <h1 className="text-center text-primary">Add Product</h1>
+        <h1 className="text-center text-danger">Add Product</h1>
       </div>
       <div className="from-input-add text-center">
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -41,7 +41,7 @@ const AddProduct = () => {
           <input {...register("img")} placeholder="Image" />
           <input type="number" {...register("price")} placeholder="Price" />
           <input
-            className="btn btn-primary text-light"
+            className="btn btn-danger text-light"
             type="submit"
             value="Add Product"
           />

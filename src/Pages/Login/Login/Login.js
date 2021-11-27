@@ -25,7 +25,7 @@ const Login = () => {
     logIn(loginData.email, loginData.password, location, history);
     e.target.reset();
   };
-  console.log(error);
+  // console.log(error);
   return (
     <>
       <Navigation></Navigation>
@@ -81,8 +81,8 @@ const Login = () => {
               Login
             </button>
           )}
+          <p className="text-danger my-3">{error}</p>
         </form>
-
         <h4 className="text-center text-danger">----- or -----</h4>
         <div className="text-center">
           <button

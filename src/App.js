@@ -11,6 +11,7 @@ import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import NotFound from "./Pages/NotFound/NotFound";
 import About from "./Pages/About/About";
 import Help from "./Help/Help";
+import DemoDasgboard from "./Pages/Dashboard/Dashboard/DBoard";
 function App() {
   return (
     <div>
@@ -32,6 +33,9 @@ function App() {
             <Route path="/login">
               <Login />
             </Route>
+            {/* <Route path="/demo">
+              <DemoDasgboard></DemoDasgboard>
+            </Route> */}
             {/* <Route path="/help">
               <Help></Help>
             </Route> */}
@@ -39,7 +43,7 @@ function App() {
               <Singup></Singup>
             </Route>
             <PrivateRoute path="/dashboard">
-              <Dashboard></Dashboard>
+              <DemoDasgboard></DemoDasgboard>
             </PrivateRoute>
             <PrivateRoute path="/placeorder/:id">
               <PlaceOrder></PlaceOrder>

@@ -1,0 +1,15 @@
+.list-items ul li {
+  list-style: none;
+  margin-top: 20px;
+}
+.list-items ul li a {
+  text-decoration: none;
+  color: white;
+}
+.bg-menu {
+  background-color: rgb(238 96 40 / 90%);
+}
+.log-ho:hover {
+  background-color: red;
+  color: white;
+}

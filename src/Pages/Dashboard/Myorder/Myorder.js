@@ -16,7 +16,7 @@ const Myorder = () => {
   return (
     <>
       <div className="my-4">
-        <h1 className="text-center text-primary fw-bold">My Order</h1>
+        <h1 className="text-center text-danger fw-bold">My Order</h1>
       </div>
       <Table striped responsive>
         <thead>

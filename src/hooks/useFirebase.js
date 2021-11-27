@@ -32,11 +32,13 @@ const useFirebase = () => {
         updateProfile(auth.currentUser, {
           displayName: name,
         })
-          .then(() => {})
+          .then(() => {
+            setError("");
+          })
           .catch((error) => {
             setError(error.message);
           });
-        const user = result.user;
+        // const user = result.user;
         history.replace(uri_redirect);
       })
       .catch((error) => {
@@ -51,6 +53,7 @@ const useFirebase = () => {
     const uri_redirect = location?.state?.from || "/home";
     signInWithPopup(auth, googleProvider)
       .then((result) => {
+        setError(" ");
         const user = result.user;
         // console.log(user);
         setUsers(user);
@@ -70,9 +73,9 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
+        setError(" ");
         const uri_redirect = location?.state?.from || "/";
         history.replace(uri_redirect);
-        setError(" ");
       })
       .catch((error) => {
         const errorMessage = error.message;

@@ -37,7 +37,7 @@ const MakeAdmin = () => {
   };
   return (
     <>
-      <div className="text-center my-3 text-success">
+      <div className="text-center my-3 text-danger">
         <h1>Make Admin</h1>
       </div>
       <form onSubmit={handelSubmit}>
@@ -53,7 +53,7 @@ const MakeAdmin = () => {
             aria-describedby="button-addon2"
           />
           <button
-            className="btn btn-outline-primary"
+            className="btn btn-outline-danger"
             id="button-addon2"
             type="submit"
           >

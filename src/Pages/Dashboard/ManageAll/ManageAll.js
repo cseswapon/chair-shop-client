@@ -25,7 +25,7 @@ const ManageAll = () => {
   return (
     <>
       <div className="text-center mb-4">
-        <h1 className="mt-3 fw-bold text-primary">Manage All Order</h1>
+        <h1 className="mt-3 fw-bold text-danger">Manage All Order</h1>
       </div>
       <Table striped responsive>
         <thead className="text-center">
