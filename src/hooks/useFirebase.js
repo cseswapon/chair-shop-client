@@ -8,6 +8,7 @@ import {
   updateProfile,
   signInWithEmailAndPassword,
   signOut,
+  getIdToken,
 } from "firebase/auth";
 import initializeFirebase from "../Pages/Login/Firebase/firebase.init";
 const useFirebase = () => {
@@ -88,6 +89,9 @@ const useFirebase = () => {
   useEffect(() => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
+        getIdToken(user).then((idToken) =>
+          localStorage.setItem("idToken", idToken)
+        );
         setUsers(user);
       } else {
         setUsers({});

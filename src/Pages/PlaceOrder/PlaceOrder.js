@@ -14,18 +14,17 @@ const PlaceOrder = () => {
   }, []);
   const { id } = useParams();
   const [single, setSingle] = useState({});
-  const [loading, setLoading] = useState(true);
   const { register, handleSubmit } = useForm();
   const { users, isLoading } = useAuth();
 
   const onSubmit = (data) => {
-    // return console.log(data);
+    const newData = { ...data, status: "pending" };
     fetch(`https://lit-badlands-47254.herokuapp.com/order`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(newData),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -44,7 +43,6 @@ const PlaceOrder = () => {
       .then((res) => res.json())
       .then((data) => {
         setSingle(data);
-        setLoading(false);
       });
   }, [id]);
   if (isLoading) {
@@ -92,12 +90,13 @@ const PlaceOrder = () => {
             <hr />
             <p className="single-pg">{single?.details}</p>
             <hr />
+            <br />
             <p className="single-Price">$ {single?.price}</p>
           </div>
         </div>
       </div>
       <div className="order-bg my-5">
-        <div className="bg-ts">
+        <div className="bg-ts mt-4">
           <div className="text-center mb-5">
             <h1
               className="text-danger info-text"
@@ -136,10 +135,12 @@ const PlaceOrder = () => {
                   {...register("price")}
                 />
               )}
-              <input required type="date" {...register("date")} />
-              <select {...register("status")}>
-                <option value="pending">Pending</option>
-              </select>
+              {single.price && (
+                <input
+                  defaultValue={new Date().toLocaleDateString()}
+                  {...register("date")}
+                />
+              )}
               <input
                 style={{
                   background: "rgb(237 75 12 / 73%)",

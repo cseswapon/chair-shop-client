@@ -10,8 +10,8 @@
   position: absolute;
   /* background: rgba(41, 60, 231, 0.438); */
   background-image: linear-gradient(
-    rgba(22, 90, 236, 0.445),
-    rgba(30, 110, 230, 0.747)
+    rgb(239 112 61 / 66%),
+    rgb(239 112 61 / 90%)
   );
   height: 100%;
   width: 100%;

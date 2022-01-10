@@ -6,11 +6,15 @@ const Myorder = () => {
   const [order, setOrder] = useState([]);
   const { users } = useAuth();
   useEffect(() => {
-    fetch("https://lit-badlands-47254.herokuapp.com/order")
+    fetch(`http://localhost:5000/orders?email=${users.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("idToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setOrder(data));
-  }, []);
-  const myOrder = order.filter((od) => od.email === users.email);
+  }, [users.email]);
+  // const myOrder = order.filter((od) => od.email === users.email);
   // console.log(myOrder);
 
   return (
@@ -30,7 +34,7 @@ const Myorder = () => {
           </tr>
         </thead>
         <tbody>
-          {myOrder.map((my, index) => (
+          {order.map((my, index) => (
             <MyorderTable
               key={my._id}
               order={my}
